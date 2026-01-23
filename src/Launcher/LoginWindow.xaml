@@ -1,0 +1,34 @@
+<Window x:Class="Launcher.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:Launcher.ViewModels"
+        mc:Ignorable="d"
+        Title="Entrar"
+        Height="450"
+        Width="360"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <vm:LoginViewModel />
+    </Window.DataContext>
+
+    <Border Margin="16">
+        <StackPanel>
+            <StackPanel>
+                <TextBlock Text="Usuário" />
+                <TextBox x:Name="UsernameTextBox"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                         TabIndex="0" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Senha" />
+                <PasswordBox x:Name="PasswordBox" PasswordChanged="PasswordBox_OnPasswordChanged" TabIndex="1" />
+            </StackPanel>
+            <Button Content="Login" Command="{Binding LoginCommand}" IsDefault="True" TabIndex="2" />
+        </StackPanel>
+    </Border>
+</Window>

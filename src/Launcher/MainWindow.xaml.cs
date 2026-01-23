@@ -1,4 +1,4 @@
-﻿namespace Launcher;
+namespace Launcher;
 
 public partial class MainWindow
 {
